@@ -9,7 +9,7 @@ const Admin = require('../Models/AdminModel');
 // @route POST /api/admin/Register
 // @access Private
 
-const RegisterAdmin = asyncHandler(async (req, res) => {
+    const RegisterAdmin = asyncHandler(async (req, res) => {
     const { First_Name, Second_Name, Email, Password, Phone_Number , Role } = req.body;
     
     if( !First_Name || !Second_Name || !Email || !Password || !Phone_Number) {
@@ -45,4 +45,28 @@ const RegisterAdmin = asyncHandler(async (req, res) => {
     }
 }) 
 
-module.exports = RegisterAdmin;
+
+// @desc Auth Admin
+// @route POST /api/admin/login
+// @access public
+
+    const Login = asyncHandler(async(req,res) => {
+        const {Email , Password} = req.body;
+
+    // check for admin email 
+    const admin = await Admin.findOne({Email , Role: 'Syndicat'})
+    if(admin){
+        const isMatch = await bcrypt.compare(Password, admin.Password)
+        if(isMatch){
+            const token = jwt.sign({id: Admin._id} , process.env.JWT_SECRET , {expiresIn: '1d'})
+            res.status(200)
+            .json({token , admin})
+        } else {
+            res.status(400)
+            .json({message: "Invalid Credentials"})
+        }
+    }
+    })
+
+
+module.exports = {RegisterAdmin , Login};
