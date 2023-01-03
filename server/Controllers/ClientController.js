@@ -2,7 +2,7 @@ const Client = require("../Models/ClientModel");
 const asyncHandler = require("express-async-handler");
 
 // @desc POST Single Client:
-// @route POST http://localhost:3001/api/admin/client
+// @route POST http://localhost:3001/api/admin/client/:id
 // @access Private
 
 const CreateClient = asyncHandler(async (req, res) => {
@@ -36,5 +36,37 @@ const CreateClient = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc update  Client:
+// @route PUT http://localhost:3001/api/admin/client
+// @access Private
 
-module.exports = CreateClient;
+const UpdateClient = asyncHandler(async (req, res) => {
+    const {
+        Name,
+        CIN,
+        Phone_number
+    } = req.body;
+    const _id = req.params.id;
+    if (!Name || !CIN || !Phone_number) {
+        res.status(400)
+           .json({ message: "please fill all fields !" });
+    }
+    // check for CIN if already exist
+    const CheckClientAndUpdate = await Client
+        .findOneAndUpdate({ _id }, {
+            Name,
+            CIN,
+            Phone_number
+        });
+    if (CheckClientAndUpdate) {
+        res.status(200)
+           .json({ message: "Client Updated Successfully !" });
+    } else {
+        res.status(400)
+           .json({ message: "Error  please try later  ! thank you" });
+    }
+});
+
+
+
+module.exports = {CreateClient , UpdateClient};
