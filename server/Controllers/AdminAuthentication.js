@@ -66,6 +66,10 @@ const Admin = require('../Models/AdminModel');
             .json({message: "Invalid Credentials"})
         }
     }
+        else {
+            res.status(400)
+            .json({message: "Invalid Credentials"})
+        }
     })
 
 
