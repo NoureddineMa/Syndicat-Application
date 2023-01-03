@@ -17,7 +17,8 @@ const CreateClient = asyncHandler(async (req, res) => {
     }
     // check for CIN if already exist
     const ClientExists = await Client.findOne ({ CIN }); 
-    if (ClientExists) {
+    const PhoneExists = await Client.findOne ({ Phone_number });
+    if (ClientExists || PhoneExists) {
         res.status(400)
            .json({ message: "Client Already Exist" });
     }
@@ -83,6 +84,20 @@ const DeleteClient = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc getALl  Client:
+// @route GET http://localhost:3001/api/admin/client
+// @access Private
+
+const GetAllClient = asyncHandler(async (req, res) => {
+    const getAllClientIfExist = await Client.find({});
+    if (getAllClientIfExist) {
+        res.status(200)
+            .json(getAllClientIfExist);
+    } else {
+        res.status(400)
+            .json({ message: "No clients Data Founded !!" });
+    }
+});
 
 
-module.exports = {CreateClient , UpdateClient , DeleteClient};
+module.exports = {CreateClient , UpdateClient , DeleteClient , GetAllClient};
