@@ -67,6 +67,22 @@ const UpdateClient = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc delete  Client:
+// @route DELETE http://localhost:3001/api/admin/client
+// @access Private
+
+const DeleteClient = asyncHandler(async (req, res) => {
+    const _id = req.params.id;
+    const CheckClientAndDelete = await Client.findOneAndDelete({ _id });
+    if (CheckClientAndDelete) {
+        res.status(200)
+              .json({ message: "Client Deleted Successfully !" });
+    } else {
+        res.status(400)
+            .json({ message: "Error  please try later  ! thank you" });
+    }
+});
 
 
-module.exports = {CreateClient , UpdateClient};
+
+module.exports = {CreateClient , UpdateClient , DeleteClient};
