@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-module.exports = function(req,res,next){
+const verifyToken = function(req,res,next){
     const token = req.header('Authorization').split(' ')[1]
     if(!token) return res.status(401)
                          .json({message: "Acces Denied !"})
@@ -15,3 +15,5 @@ module.exports = function(req,res,next){
            .json({message: 'Invalid token !!'})
     }                     
 }
+
+module.exports = verifyToken;
