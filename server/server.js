@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config();
 const router = require('./Routers/AdminAuthRouter')
 const appartement = require('./Routers/AppartementRouters')
+const client = require('./Routers/ClientRouter')
 
 
 const PORT = process.env.PORT_APP || 5000;
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/admin' , router)
 app.use('/api/admin' , appartement)
+app.use('/api/admin' , client)
 
 
 app.listen(PORT, () => {

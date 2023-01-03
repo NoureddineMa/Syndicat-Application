@@ -29,12 +29,21 @@ const CreateAppartement = asyncHandler(async (req, res) => {
     }
 })
     
-// @desc Update  Appartement:
+// @desc delete  Appartement:
 // @route PUT /appartement/:id
 // @access Private
 
+const DeleteAppartement = asyncHandler(async (req, res) => {
+    const appartement = await Appartement.findById(req.params.id)
+    if (appartement) {
+        await appartement.remove()
+        res.json({ message: 'Appartement removed' })
+    } else {
+        res.status(404)
+        res.json({message: "Appartement not found"})
+    }
+})
 
 
-
-module.exports = {CreateAppartement};
+module.exports = {CreateAppartement , DeleteAppartement};
 

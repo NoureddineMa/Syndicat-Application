@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const AppartementSchema = require('./AppartementModel')
+const ClientSchema = require('./ClientModel')
 
 const PaimentAppartement = mongoose.Schema({
     Date : {
@@ -13,6 +14,10 @@ const PaimentAppartement = mongoose.Schema({
     Appartement_Number : {
         type: Number,
         ref: 'Appartement'
+    },
+    Owner: {
+        type: String,
+        ref: 'Client'
     }
 })
 
