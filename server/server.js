@@ -4,6 +4,7 @@ require('dotenv').config();
 const router = require('./Routers/AdminAuthRouter')
 const appartement = require('./Routers/AppartementRouters')
 const client = require('./Routers/ClientRouter')
+const paiment = require('./Routers/PaimentRouter')
 
 
 const PORT = process.env.PORT_APP || 5000;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/admin' , router)
 app.use('/api/admin' , appartement)
 app.use('/api/admin' , client)
+app.use('/api/admin' , paiment)
 
 
 app.listen(PORT, () => {

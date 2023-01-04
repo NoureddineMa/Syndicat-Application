@@ -7,21 +7,21 @@ const Appartement = require('../Models/AppartementModel');
 // @access Private
 
 const CreateAppartement = asyncHandler(async (req, res) => {
-    const { Name_Residence, Number_appartement } = req.body;
-    if (!Name_Residence || !Number_appartement) {
+    const { Name_Residence, Appartement_number } = req.body;
+    if (!Name_Residence || !Appartement_number) {
         res.status(400)
             .json({ message: "please fill all fields !" })
     }
-    // check for Number_appartement if already exist 
-    const AppartementExists = await Appartement.findOne({ Number_appartement })
-    if (AppartementExists) {
-        res.status(400)
-            .json({ message: "Appartement Already Exist" })
+
+    const checkAppartementNumber = await Appartement.findOne({Appartement_number: req.body.Appartement_number})
+    if(checkAppartementNumber){
+        res.json({message: "Appartement Already Exist "})
     }
+
     // Create Appartement :
     const appartement = await Appartement.create({
         Name_Residence,
-        Number_appartement
+        Appartement_number
     })
     if (appartement) {
         res.status(200)
