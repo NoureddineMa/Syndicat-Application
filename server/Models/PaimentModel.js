@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const AppartementSchema = require('./AppartementModel')
-const ClientSchema = require('./ClientModel')
+const Appartement = require('./AppartementModel')
+const Client = require('./ClientModel')
 
 const PaimentAppartement = mongoose.Schema({
     Date : {
@@ -12,10 +12,10 @@ const PaimentAppartement = mongoose.Schema({
         required: [true, "Please enter a montant of payment"]
     },
     Appartement_number : {
-        type: Number,
+        type: String,
         ref: 'Appartement'
     },
-    Name: {
+    CIN: {
         type: String,
         ref: 'Client'
     }
