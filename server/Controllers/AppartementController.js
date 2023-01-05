@@ -30,7 +30,7 @@ const CreateAppartement = asyncHandler(async (req, res) => {
 })
     
 // @desc delete  Appartement:
-// @route PUT /appartement/:id
+// @route DELETE /appartement/:id
 // @access Private
 
 const DeleteAppartement = asyncHandler(async (req, res) => {
@@ -44,6 +44,33 @@ const DeleteAppartement = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc update  Appartement:
+// @route PUT /appartement/:id
+// @access Private
 
-module.exports = {CreateAppartement , DeleteAppartement};
+const UpdateAppartement = asyncHandler(async (req, res) => {
+    const {Name_Residence , Appartement_number} = req.body; 
+    const _id = req.params.id;
+
+    if(!Name_Residence || !Appartement_number){
+        res.status(400)
+        .json({message: "please fill all fields !"})
+    }
+    
+    const checkAppartementAndUpdate = await Appartement.findOneAndUpdate({_id}, {
+        Name_Residence,
+        Appartement_number
+    })
+    if(checkAppartementAndUpdate){
+        res.status(200)
+        .json({message: "Appartement Updated Successfully !"})
+    }
+    else{
+        res.status(400)
+        .json({message: "Error  please try later  ! thank you"})
+    }
+})
+
+
+module.exports = {CreateAppartement ,DeleteAppartement ,UpdateAppartement};
 

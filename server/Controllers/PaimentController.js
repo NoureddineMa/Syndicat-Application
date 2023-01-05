@@ -48,7 +48,6 @@ const CreatePaiment = asyncHandler(async (req, res) => {
 
 })
 
-
 // @desc DELETE Single Paiment:
 // @route DELETE http://localhost:3001/api/admin/paiment/:id
 // @access Private
