@@ -63,4 +63,20 @@ const DeletePaiment = asyncHandler(async (req, res) => {
     }
 })
 
-module.exports = {CreatePaiment , DeletePaiment};
+// @desc GTEALL Paiment:
+// @route GET http://localhost:3001/api/admin/paiments
+// @access Private
+
+const GetAllPaiments = asyncHandler(async (req, res) => {
+    const paiments = await Paiment.find({}).populate("Appartement_number").populate("CIN");
+    if(paiments){
+        res.status(200)
+        .json(paiments)
+    }else{
+        res.status(404)
+        .json({message: "Paiments Not Found"})
+    }   
+})
+
+
+module.exports = {CreatePaiment , DeletePaiment , GetAllPaiments};
