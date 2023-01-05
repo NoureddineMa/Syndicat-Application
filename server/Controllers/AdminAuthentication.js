@@ -57,9 +57,12 @@ const Admin = require('../Models/AdminModel');
     const admin = await Admin.findOne({Email , Role: 'Syndicat'})
     if(admin){
         const isMatch = await bcrypt.compare(Password, admin.Password)
-        if(isMatch){
-            const token = jwt.sign({id: Admin._id} , process.env.JWT_SECRET , {expiresIn: '1d'})
+        if(isMatch){            
+            const token = jwt.sign({ _id: admin._id }, process.env.JWT_SECRET, {
+                expiresIn: '24h' // expires in 24 hours
+            });
             res.status(200)
+            .set('Authorization' , `Bearer ${token}`)
             .json({token , admin})
         } else {
             res.status(400)
