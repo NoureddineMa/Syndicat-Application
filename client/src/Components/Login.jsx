@@ -1,8 +1,15 @@
 import React from "react";
 import '../App.css'
+import userContext  from './context/UserContext'
+import { useContext , useState } from "react";
+import axios from 'axios'
 
 function Login() {
+
+    const {setUser} = useContext(userContext);
+
     return (
+
         <div className="bg-[#00ABB3]">
 
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -39,5 +46,6 @@ function Login() {
         </div>
     )
 }
-
 export default Login
+
+
