@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cors = require('cors')
 const router = require('./Routers/AdminAuthRouter')
 const appartement = require('./Routers/AppartementRouters')
 const client = require('./Routers/ClientRouter')
@@ -14,10 +15,11 @@ require('./Config/configDb').connect();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/api/admin' , router)
-app.use('/api/admin' , appartement)
-app.use('/api/admin' , client)
-app.use('/api/admin' , paiment)
+app.use(cors({origin:true,credentials:true}));
+app.use('/api/admin' , router);
+app.use('/api/admin' , appartement);
+app.use('/api/admin' , client);
+app.use('/api/admin' , paiment);
 
 
 app.listen(PORT, () => {
