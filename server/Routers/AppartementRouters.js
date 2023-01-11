@@ -11,6 +11,6 @@ app.post('/appartement' ,verifyToken,syndicatMiddleware,CreateAppartement)
 app.delete('/appartement/:id' ,verifyToken,syndicatMiddleware,DeleteAppartement)
 app.put('/appartement/:id' ,verifyToken,syndicatMiddleware,UpdateAppartement)
 app.get('/appartements' ,verifyToken,syndicatMiddleware,GetAllAppartement)
-app.get('/appartements/:id' ,verifyToken,syndicatMiddleware,GetAllAppartement)
+app.get('/appartement/:id' ,verifyToken,syndicatMiddleware,GetAllAppartement)
 
 module.exports = app;
