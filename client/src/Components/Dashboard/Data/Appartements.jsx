@@ -9,7 +9,6 @@ function Appartements() {
 
     const navigate = useNavigate();
     const [Appartement , setAppartement] = useState([]);
-    const [deleteROw, setDeleteRow] = useState("")
     const API_URL = "http://localhost:3001/api/admin/appartements"
 
 
@@ -36,8 +35,9 @@ function Appartements() {
         axios.delete(`http://localhost:3001/api/admin/appartement/${id}`, {
             headers: {Authorization: `Bearer ${token}`},
         }).then((response) => {
+            let data = Appartement.filter((app) => app._id !== id)
+            setAppartement(data);
             console.log(response.data.message);
-            setDeleteRow(response.data.message)
         }).catch((err) => {
             console.log(err);
         })
