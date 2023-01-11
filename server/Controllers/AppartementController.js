@@ -87,7 +87,25 @@ const GetAllAppartement = asyncHandler(async (req, res) => {
 })
 
 
+// @desc GET SINGLE   Appartement:
+// @route GET /appartement
+// @access Private
+
+const GetSingleAppartement = asyncHandler(async (req, res) => {
+    const appartement = await Appartement.findById(req.params.id)
+    if (appartement) {
+        res.status(200)
+            .json(appartement)
+    } else {
+        res.status(400)
+            .json({ message: "Error  please try later  ! thank you" })
+    }
+})
 
 
-module.exports = {CreateAppartement ,DeleteAppartement ,UpdateAppartement , GetAllAppartement};
+
+
+
+
+module.exports = {CreateAppartement ,DeleteAppartement ,UpdateAppartement , GetAllAppartement , GetSingleAppartement};
 
