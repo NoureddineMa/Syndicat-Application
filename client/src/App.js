@@ -25,7 +25,7 @@ function App() {
            <Route path='/Dashboard' element={<Counts />}/>
             <Route path='/Appartements' element={<Appartements/>} />
             <Route path='/AddAppartement' element={<AddAppartement/>} />
-            <Route path='/UpdateAppartement' element={<UpdateAppartement/>} />
+            <Route path='/UpdateAppartement/:id' element={<UpdateAppartement/>} />
             <Route path='/Clients' element={<Client/>} />
             <Route path='/AddClients' element={<AddClient/>} />
             <Route path='/UpdateClient' element={<UpdateClient />} />

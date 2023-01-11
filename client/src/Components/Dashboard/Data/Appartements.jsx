@@ -22,6 +22,7 @@ function Appartements() {
             axios.get(API_URL , {
                 headers: {Authorization : `Bearer ${token}`}
             }).then((data) => {
+                
                 setAppartement(data.data)
             })
         } catch (error) {
@@ -42,6 +43,8 @@ function Appartements() {
             console.log(err);
         })
     }
+
+
 
     return (
         <div>
@@ -76,9 +79,9 @@ function Appartements() {
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                                 {appart.Appartement_number}
                             </td>
-                            <Link to="/UpdateAppartement">
+                            <Link to={`/UpdateAppartement/${appart._id}`}>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                                    <button className="group relative inline-block text-sm font-medium text-[#68B984] focus:outline-none focus:ring active:text-indigo-500">
+                                    <button  className="group relative inline-block text-sm font-medium text-[#68B984] focus:outline-none focus:ring active:text-indigo-500">
                                         <span className="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-[#68B984] transition-transform group-hover:translate-y-0 group-hover:translate-x-0" />
                                         <span className="relative block border border-current bg-white px-8 py-3">
                                             Update
