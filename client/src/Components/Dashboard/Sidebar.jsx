@@ -3,7 +3,7 @@ import Logout from './Logout'
 import { Outlet } from 'react-router-dom'
 import { Link , } from 'react-router-dom'
 import UserContext from '../context/UserContext'
-import Image from '../../images/maher.jpeg'
+import Image from '../../images/pdp.jpg'
 
 function Sidebar() {
 
