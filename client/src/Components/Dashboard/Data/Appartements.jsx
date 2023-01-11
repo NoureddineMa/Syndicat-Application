@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 
 function Appartements() {
 
-    const navigate = useNavigate();
     const [Appartement , setAppartement] = useState([]);
     const API_URL = "http://localhost:3001/api/admin/appartements"
 
@@ -22,7 +20,7 @@ function Appartements() {
             axios.get(API_URL , {
                 headers: {Authorization : `Bearer ${token}`}
             }).then((data) => {
-                
+                console.log(data.data);
                 setAppartement(data.data)
             })
         } catch (error) {

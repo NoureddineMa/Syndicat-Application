@@ -52,6 +52,7 @@ function UpdateAppartement() {
                 headers : {Authorization: `Bearer ${token}`}
             }).then((res) => {
                 console.log(res);
+                navigate('/Appartements')
             })
         } catch (error) {
             console.log(error);

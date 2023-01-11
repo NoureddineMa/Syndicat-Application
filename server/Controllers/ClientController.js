@@ -85,7 +85,7 @@ const DeleteClient = asyncHandler(async (req, res) => {
 });
 
 // @desc getALl  Client:
-// @route GET http://localhost:3001/api/admin/client
+// @route GET http://localhost:3001/api/admin/client/:id
 // @access Private
 
 const GetAllClient = asyncHandler(async (req, res) => {

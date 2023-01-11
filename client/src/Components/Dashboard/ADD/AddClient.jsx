@@ -1,6 +1,28 @@
 import React from 'react'
+import { useState ,useEffect } from 'react'
+import axios from 'axios'
+
 
 function AddClient() {
+
+    const [client, setClients] = useState([])
+    const API_URL = "http://localhost:3001/api/admin/client"
+
+    const token = localStorage.getItem("token")
+
+    //get ALL clients : 
+    useEffect(() => {
+      try {
+        axios.get(API_URL , {
+          headers: {Authorization : `Bearer ${token}`}        
+        }).then((data) => {
+          console.log(data);
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }, []);
+
     return (
         <>
           <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
