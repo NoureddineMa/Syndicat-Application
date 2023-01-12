@@ -85,7 +85,7 @@ const DeleteClient = asyncHandler(async (req, res) => {
 });
 
 // @desc getALl  Client:
-// @route GET http://localhost:3001/api/admin/client/:id
+// @route GET http://localhost:3001/api/admin/client
 // @access Private
 
 const GetAllClient = asyncHandler(async (req, res) => {
@@ -100,4 +100,22 @@ const GetAllClient = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = {CreateClient , UpdateClient , DeleteClient , GetAllClient};
+// @desc get Single  Client:
+// @route GET http://localhost:3001/api/admin/client/:id
+// @access Private
+
+const getSingleClient = asyncHandler(async(req,res) => {
+    const client = await Client.findById(req.params.id)
+    if(client){
+        res.status(200)
+        .json(client)
+    } else {
+        res.status(400)
+        .json({message: "This client is not FOUND !!"})
+    }
+})
+
+
+
+
+module.exports = {CreateClient , UpdateClient , DeleteClient , GetAllClient , getSingleClient};
