@@ -5,7 +5,23 @@ import axios from 'axios'
 
 function Paiments() {
 
-   
+   const [data ,setData] = useState([])
+   const API_GET = "http://localhost:3001/api/admin/paiments"
+
+   const token = localStorage.getItem("token")
+
+   useEffect(() => {
+    try {
+         axios.get(API_GET, {
+        headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            console.log(res.data);
+            setData(res.data)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+   } ,[])
 
   return (
     <div>
@@ -36,18 +52,19 @@ function Paiments() {
                 </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                <tr>
+                {data.map((paiment => (
+                    <tr>
                     <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                    2002-12-09
+                    {paiment.Date}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                    4500 <span className='font-bold'>DH</span>
+                    {paiment.Montant} <span className='font-bold'>DH</span>
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                    AA103212
+                    {paiment.CIN.CIN}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                    A12
+                    {paiment.Appartement_number.Appartement_number}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                         
@@ -58,7 +75,8 @@ function Paiments() {
                                     </span>
                                 </button>
                     </td>
-                </tr>
+                </tr> 
+                )))}
             </tbody>
         </table>
     </div>
