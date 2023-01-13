@@ -4,10 +4,18 @@ import axios from 'axios'
 function AddPaiments() {
 
   // get All CIN client to map for it in select option :
-  const [CIN, setCIN] = useState([])
+  const [CIIN, setCIN] = useState([])
   const [NumberAppartement , setNumberAppartement] = useState([])
+  const [Date, setDate] = useState("")
+  const [Montant , setMontant] = useState("")
+  const [Appartement_number , setAppartementNumber] = useState("")
+  const [CIN , setCin] = useState("")
+  const [succes , setSucces] = useState("")
+  const [error, setError] = useState("")
+
   const API_CLIENT = "http://localhost:3001/api/admin/client"
   const API_APPARTEMENT = "http://localhost:3001/api/admin/appartements"
+  const API_ADD = "http://localhost:3001/api/admin/paiment"
 
   const token = localStorage.getItem("token")
 
@@ -25,28 +33,60 @@ function AddPaiments() {
       console.log(error);
     }
   }
-
   // function GET DATA APPARTEMENT TO RETRIVE NUMERO APPARTEMENT :
   function getNumberAppartement(){
     try {
       axios.get(API_APPARTEMENT, {
         headers: { Authorization: `Bearer ${token}` }
       }).then((data) => {
-        console.log(data.data);
         setNumberAppartement(data.data)
       })
     } catch (error) {
       console.log(error);
     }
   }
-
-
   useEffect(() => {
     getCIN()
     getNumberAppartement()
   }, [])
 
+  // handle inputs : 
+
+  const handleDate = (e) => {
+    return setDate(e.target.value)
+  }
+  const handleMontant = (e) => {
+    return setMontant(e.target.value)
+  }
+  const handleAppartementNumber = (e) => {
+    return setAppartementNumber(e.target.value)
+  }
+  const hanleCin = (e) => {
+    return setCin(e.target.value)
+  }
   
+  // handle Submit : 
+  const submitHandle = async (e) => {
+    e.preventDefault();
+    const Paiment = {
+      Date,
+      Montant,
+      Appartement_number,
+      CIN
+    }
+    try {
+      await axios.post(API_ADD, Paiment , {
+        headers: { Authorization: `Bearer ${token}` }
+      }).then((res) => {
+        console.log(res.data.message);
+        setSucces(res.data.message);
+      })
+    } catch (error) {
+      console.log(error.response.data.message)
+      setError(error.response.data.message)
+    }
+  }
+
 
 
   return (
@@ -60,22 +100,22 @@ function AddPaiments() {
 
             {/* code date picker */}
             <div>
-              <label htmlFor="password" className="text-sm text-black font-medium">Enter Date Payment : </label>
+              <label htmlFor="date" className="text-sm text-black font-medium">Enter Date Payment : </label>
               <div className="relative mt-1">
-                <input type="date" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
+                <input onChange={handleDate} type="date" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
               </div>
             </div>
             {/* end date picker  */}
             <div>
               <label htmlFor="texte" className="text-sm text-black font-medium">Enter Montant : </label>
               <div className="relative mt-1">
-                <input type="texte" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
+                <input onChange={handleMontant} type="texte" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
               </div>
             </div>
 
             <div className="inline-block relative w-64">
               <label htmlFor="password" className="text-sm text-black font-medium">Choose Appartement Number : </label>
-              <select className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <select onChange={handleAppartementNumber} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               {NumberAppartement.map((number) => (
                   <option value={number.Appartement_number}>
                     {number.Appartement_number}
@@ -89,8 +129,8 @@ function AddPaiments() {
 
             <div className="inline-block relative w-64">
               <label htmlFor="password" className="text-sm text-black font-medium">CIN Owner : </label>
-              <select className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                {CIN.map((cin) => (
+              <select onChange={hanleCin} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                {CIIN.map((cin) => (
                   <option value={cin.CIN}>
                     {cin.CIN}
                   </option>
@@ -101,7 +141,7 @@ function AddPaiments() {
               </div>
             </div>
 
-            <button type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
+            <button onClick={submitHandle} type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
               ADD
             </button>
           </form>
