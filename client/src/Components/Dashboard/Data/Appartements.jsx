@@ -11,10 +11,7 @@ function Appartements() {
 
 
     const token = localStorage.getItem("token");
-
-    
     // GET ALL APPARTEMENT : 
-    
         useEffect(() => {
         try {
             axios.get(API_URL , {

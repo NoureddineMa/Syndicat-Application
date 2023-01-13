@@ -1,7 +1,12 @@
-import React from 'react'
+import {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
 
 function Paiments() {
+
+   
+
   return (
     <div>
         <div className='flex  justify-between '>

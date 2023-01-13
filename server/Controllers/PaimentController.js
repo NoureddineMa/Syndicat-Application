@@ -79,4 +79,6 @@ const GetAllPaiments = asyncHandler(async (req, res) => {
 })
 
 
+
+
 module.exports = {CreatePaiment , DeletePaiment , GetAllPaiments};
