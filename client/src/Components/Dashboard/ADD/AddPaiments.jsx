@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function AddPaiments() {
@@ -19,7 +20,7 @@ function AddPaiments() {
 
   const token = localStorage.getItem("token")
 
-
+  const navigate = useNavigate()
 
   // function GET DATA CLIENT TO RETRIVE CIN :
   function getCIN() {
@@ -80,6 +81,7 @@ function AddPaiments() {
       }).then((res) => {
         console.log(res.data.message);
         setSucces(res.data.message);
+        navigate('/Paiments')
       })
     } catch (error) {
       console.log(error.response.data.message)
