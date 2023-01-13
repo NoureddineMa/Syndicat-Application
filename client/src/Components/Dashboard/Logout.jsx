@@ -12,7 +12,7 @@ function Logout() {
     return (
         <>
             <div className='hover mt-11'>
-                <button onClick={logout} className="text-[#00ABB3]  text-sm hidden md:block">Logout</button>
+                <button onClick={logout} className="text-[#FF6E31]  text-sm hidden md:block">Logout</button>
             </div>
         </>
     )

@@ -71,8 +71,8 @@ function AddClient() {
           <input onChange={handePhoneNumer} type="text"  className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Phone Numero" />
         </div>
       </div>
-      <button onClick={submiHandler} type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
-        ADD
+      <button onClick={submiHandler} type="submit" className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
+        ADD CLIENT
       </button>
     </form>
   </div>

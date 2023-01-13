@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddAppartement() {
 
@@ -22,6 +24,7 @@ function AddAppartement() {
 
   const token = localStorage.getItem("token")
 
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const appartement = {
@@ -37,9 +40,18 @@ function AddAppartement() {
         navigate('/Appartements')
       })
     } catch (error) {
+
       console.log(error);
     }
   }
+
+  function event(){
+    toast(`${message}`);
+  }
+
+
+
+ 
 
   return (
     <>
@@ -62,9 +74,10 @@ function AddAppartement() {
               </div>
             </div>
             {/* input submit form  */}
-            <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
-              Sign in
+            <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
+              ADD APPARTEMENT
             </button>
+            <ToastContainer />
           </form>
         </div>
       </div>

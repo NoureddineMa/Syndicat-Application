@@ -43,7 +43,7 @@ function Paiments() {
         <div className='flex  justify-between '>
             <h1 className='text-black font-xl font-bold ml-2 mt-4  d-flex'>ADD Paiment</h1>
             <Link to="/AddPaiments">
-            <button className='bg-[#00ABB3] text-white px-11 py-2'>Add</button>
+            <button className='bg-[#FF6E31] text-white px-11 py-2'>Add</button>
             </Link>
             </div>
     <div className="overflow-hidden py-5 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">

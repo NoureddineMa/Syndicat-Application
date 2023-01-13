@@ -56,11 +56,11 @@ function Login() {
                     <h1 className="text-center text-4xl m-5 font-bold text-back sm:text-3xl text-white">
                         Welcome Admin
                     </h1>
-                    <p className="mx-auto mt-4 max-w-md text-center text-[#CBEDD5]">
+                    <p className="mx-auto mt-4 max-w-md text-center text-[#FF6E31]">
                         Application de syndicat pour gérer les paiement pour chaque appartement
                     </p>
-                    <form action className="mt-6 mb-7 space-y-4 rounded-lg p-8 shadow-2xl bg-[#F1F6F5]">
-                        <p className="text-lg title font-bold text-[#00ABB3]">Sign in to your account</p>
+                    <form action className="mt-6 mb-7 space-y-4 rounded-lg p-8 shadow-2xl bg-[#FFFF]">
+                        <p className="text-lg title font-bold text-[#FF6E31]">Sign in to your account</p>
                         {error && <div role="alert" class="border border-gray-100 p-4 shadow-xl">
                             <div class="flex items-start gap-4">
                                 <span class="text-red-600">
@@ -95,7 +95,7 @@ function Login() {
                             </div>
                         </div>
 
-                        <button type="submit" onClick={loginHandler} className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
+                        <button type="submit" onClick={loginHandler} className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
                             Sign in
                         </button>
                     </form>

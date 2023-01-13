@@ -77,8 +77,8 @@ function UpdateAppartement() {
                                 <input onChange={handleAppartementNumber} type="text" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder={data.Appartement_number} />
                             </div>
                         </div>
-                        <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
-                            Update
+                        <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
+                            UPDATE APPARTEMENT DETAILS
                         </button>
                     </form>
                 </div>

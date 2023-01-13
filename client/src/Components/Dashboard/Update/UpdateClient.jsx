@@ -2,6 +2,7 @@ import {useState , useEffect} from 'react'
 import { useParams , useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
+
 function UpdateClient() {
 
   const [data , setData] = useState({})
@@ -88,7 +89,7 @@ function UpdateClient() {
                 <input onChange={handlePhoneNumber}  placeholder={data.Phone_number} type="text" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" />
               </div>
             </div>
-            <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#00ABB3] px-5 py-3 text-sm font-medium text-white">
+            <button onClick={submitHandler} type="submit" className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
               Update
             </button>
           </form>

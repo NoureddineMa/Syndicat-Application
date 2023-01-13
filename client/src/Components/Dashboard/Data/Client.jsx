@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState , useEffect } from 'react'
 import axios from 'axios'
 
+
 function Client() {
 
 
@@ -45,7 +46,7 @@ function Client() {
          <div className='flex  justify-between '>
             <h1 className='text-black font-xl font-bold ml-2 mt-4  d-flex'>ADD Owner</h1>
             <Link to="/AddClients">
-            <button className='bg-[#00ABB3] text-white px-11 py-2'>Add</button>
+            <button className='bg-[#FF6E31] text-white px-11 py-2'>Add</button>
             </Link>
             </div>
     <div className="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
