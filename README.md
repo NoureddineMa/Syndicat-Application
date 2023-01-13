@@ -9,10 +9,10 @@
 git clone https://github.com/NoureddineMa/Syndicat-Application
 ```
 
-- Inside the project you have two layers, frontend and server, locate to each directory and install all needed dependencies
+- Inside the project you have two layers, client and server, locate to each directory and install all needed dependencies
 
   ```bash
-  cd frontend
+  cd client
   npm install
   npm start
   ```
