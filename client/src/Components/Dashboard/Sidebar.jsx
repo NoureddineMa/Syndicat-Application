@@ -68,6 +68,17 @@ function Sidebar() {
               </div>
             </Link>
 
+            <Link to='/Settings'>
+              <div className="relative mt-7 flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center mb-7 ml-7 ">
+                <div>
+                  <p className="font-bold text-base lg:text-lg text-black  leading-4 group-hover:text-indigo-400">Settings</p>
+                  <p className="text-[#FF6E31]  text-sm hidden md:block">Manage Informations</p>
+                </div>
+              </div>
+            </Link>
+
+            
+
               <div className="flex flex-col  mt-11 space-y-2 md:flex-row md:space-y-0 space-x-2 items-center ml-7 ">
                 <Logout />
               </div>

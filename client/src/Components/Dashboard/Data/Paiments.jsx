@@ -70,7 +70,7 @@ function Paiments() {
                 {data.map((paiment => (
                     <tr>
                     <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                    {paiment.Date}
+                    {paiment.Date.slice(0,10)}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                     {paiment.Montant} <span className='font-bold'>DH</span>
@@ -80,6 +80,7 @@ function Paiments() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                     {paiment.Appartement_number.Appartement_number}
+                    test
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                         

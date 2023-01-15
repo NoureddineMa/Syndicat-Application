@@ -11,6 +11,7 @@ import Appartements from './Components/Dashboard/Data/Appartements.jsx';
 import Client from './Components/Dashboard/Data/Client.jsx';
 import { UserProvider } from './Components/context/UserContext.js';
 import UpdateClient from './Components/Dashboard/Update/UpdateClient.jsx';
+import Settings from './Components/Dashboard/Settings.jsx';
 
 
 
@@ -22,7 +23,7 @@ function App() {
     <Routes>
         <Route path='/' element={<Login />} />
        <Route  element={<Sidebar />} >
-           <Route path='/Dashboard' element={<Counts />}/>
+           <Route path='/Dashboard' element={<Counts/>}/>
             <Route path='/Appartements' element={<Appartements/>} />
             <Route path='/AddAppartement' element={<AddAppartement/>} />
             <Route path='/UpdateAppartement/:id' element={<UpdateAppartement/>} />
@@ -31,6 +32,7 @@ function App() {
             <Route path='/UpdateClient/:id' element={<UpdateClient />} />
             <Route path='/Paiments' element={<Paiments/>} />
             <Route path='/AddPaiments' element={<AddPaiments />} />
+            <Route path='/Settings' element={<Settings/>} />
        </Route>
     </Routes>
     </UserProvider>
