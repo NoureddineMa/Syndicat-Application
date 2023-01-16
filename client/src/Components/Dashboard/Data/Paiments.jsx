@@ -64,6 +64,8 @@ function Paiments() {
                     </th>
                     <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
                     </th>
+                    <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
+                    </th>
                 </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -91,6 +93,17 @@ function Paiments() {
                                     </span>
                                 </button>
                     </td>
+                <Link to={`/generatePdf/${paiment._id}`}>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                        
+                        <button  className="group relative inline-block text-sm font-medium text-[#4E6C50] focus:outline-none focus:ring active:text-[#DC0000]">
+                            <span className="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-[#4E6C50] transition-transform group-hover:translate-y-0 group-hover:translate-x-0" />
+                            <span className="relative block border border-current bg-white px-8 py-3">
+                                VIEW TO PRINT
+                            </span>
+                        </button>
+                    </td>
+                </Link>
                 </tr> 
                 )))}
             </tbody>

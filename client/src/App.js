@@ -13,7 +13,7 @@ import { UserProvider } from './Components/context/UserContext.js';
 import UpdateClient from './Components/Dashboard/Update/UpdateClient.jsx';
 import Settings from './Components/Dashboard/Settings.jsx';
 import Notfound from './Components/Notfound.jsx';
-
+import GeneratePdf from './Components/Dashboard/Data/GeneratePdf.jsx';
 
 
 
@@ -32,6 +32,7 @@ function App() {
             <Route path='/AddClients' element={<AddClient/>} />
             <Route path='/UpdateClient/:id' element={<UpdateClient />} />
             <Route path='/Paiments' element={<Paiments/>} />
+            <Route path='/generatePdf/:id' element={<GeneratePdf />} />
             <Route path='/AddPaiments' element={<AddPaiments />} />
             <Route path='/Settings' element={<Settings/>} />
        </Route>
