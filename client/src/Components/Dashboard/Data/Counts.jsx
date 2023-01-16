@@ -1,13 +1,68 @@
-import React from 'react'
+import { useState , useEffect } from "react"
+import axios from 'axios'
 
 function Counts() {
+
+    const [Client , setClientNumber] = useState([])
+    const [Appartement , setAppartementNumber] = useState([])
+    const [Paiment , setPaimentNumber] = useState([])
+
+    const API_CLIENT = "http://localhost:3001/api/admin/clientCount"
+    const API_APPAETEMENT = "http://localhost:3001/api/admin/appartementCount"
+    const API_PAIMENT = "http://localhost:3001/api/admin/paimentCount"
+
+    const token = localStorage.getItem("token")
+
+    const CountClient = async () => {
+        try {
+            const data = await axios.get(API_CLIENT, {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            console.log(data.data.count)
+            setClientNumber(data.data?.count)
+        } catch (error) {
+            console.log(error);
+        }
+    } 
+
+    const CountAppartement = async () => {
+        try {
+            const data = await axios.get(API_APPAETEMENT, {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            console.log(data.data.count)
+            setAppartementNumber(data.data?.count)
+        } catch (error) {
+            console.log(error);
+        }
+    } 
+
+    const CountPaiment = async () => {
+        try {
+            const data = await axios.get(API_PAIMENT, {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            console.log(data.data.count)
+            setPaimentNumber(data.data?.count)
+        } catch (error) {
+            console.log(error);
+        }
+    } 
+
+
+
+    useEffect(() => {
+        CountClient()
+        CountAppartement()
+        CountPaiment()
+    }, [])
 
     return (
         <>
             <div className='lg:grid grid-cols-3 gap-4'>
                 <div>
                     <div className="relative block rounded-sm border-t-4 border-[#FF6E31] p-8 pb-24 shadow-xl">
-                        <h3 className="text-4xl text-[#FF6E31] font-bold">100+</h3>
+                        <h3 className="text-4xl text-[#FF6E31] font-bold">{Appartement}</h3>
                         <p className="mt-4 text-lg font-medium text-gray-500">
                             APPARTEMENTS
                            
@@ -16,7 +71,7 @@ function Counts() {
                 </div>
                 <div>
                     <div className="relative block rounded-sm border-t-4 border-[#FF6E31] p-8 pb-24 shadow-xl">
-                        <h3 className="text-4xl text-[#FF6E31] font-bold">100+</h3>
+                        <h3 className="text-4xl text-[#FF6E31] font-bold">{Client}</h3>
                         <p className="mt-4 text-lg font-medium text-gray-500">
                             CLIENTS
                         </p>
@@ -24,7 +79,7 @@ function Counts() {
                 </div>
                 <div>
                     <div className="relative block rounded-sm border-t-4 border-[#FF6E31] p-8 pb-24 shadow-xl">
-                        <h3 className="text-4xl text-[#FF6E31] font-bold">100+</h3>
+                        <h3 className="text-4xl text-[#FF6E31] font-bold">{Paiment}</h3>
                         <p className="mt-4 text-lg font-medium text-gray-500">
                             PAIMENTS
                         </p>

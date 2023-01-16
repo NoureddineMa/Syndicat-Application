@@ -6,6 +6,7 @@ const router = require('./Routers/AdminAuthRouter')
 const appartement = require('./Routers/AppartementRouters')
 const client = require('./Routers/ClientRouter')
 const paiment = require('./Routers/PaimentRouter')
+const dashboard = require('./Routers/Dashboard')
 
 
 const PORT = process.env.PORT_APP || 5000;
@@ -20,6 +21,7 @@ app.use('/api/admin' , router);
 app.use('/api/admin' , appartement);
 app.use('/api/admin' , client);
 app.use('/api/admin' , paiment);
+app.use('/api/admin' , dashboard)
 
 
 app.listen(PORT, () => {
