@@ -79,6 +79,21 @@ const GetAllPaiments = asyncHandler(async (req, res) => {
 })
 
 
+// @desc Get SINGLE PAIMENT BY ID :
+// @route GET : http:://localhost:3001/api/admin/paiment/:id
+
+const getSignlePaiment = asyncHandler(async(req,res) => {
+    const paiment = await Paiment.findById(req.params.id)
+    if(paiment){
+        res.status(200)
+        .json(paiment)
+    } else {
+        res.status(400)
+        .json({message: "Paiment Not found !!"})
+    }
+})
+
+
 
 
 module.exports = {CreatePaiment , DeletePaiment , GetAllPaiments};
