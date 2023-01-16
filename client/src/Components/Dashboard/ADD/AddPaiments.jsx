@@ -118,6 +118,7 @@ function AddPaiments() {
             <div className="inline-block relative w-64">
               <label htmlFor="password" className="text-sm text-black font-medium  ">Choose Appartement Number : </label>
               <select onChange={handleAppartementNumber} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+             <option selected disabled>Appartement Number</option>
               {NumberAppartement.map((number) => (
                   <option value={number.Appartement_number}>
                     {number.Appartement_number}
@@ -132,6 +133,7 @@ function AddPaiments() {
             <div className="inline-block relative w-64">
               <label htmlFor="password" className="text-sm text-black font-medium">CIN Owner : </label>
               <select onChange={hanleCin} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <option selected disabled>CIN owner</option>
                 {CIIN.map((cin) => (
                   <option value={cin.CIN}>
                     {cin.CIN}
