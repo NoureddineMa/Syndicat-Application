@@ -96,4 +96,4 @@ const getSignlePaiment = asyncHandler(async(req,res) => {
 
 
 
-module.exports = {CreatePaiment , DeletePaiment , GetAllPaiments , getSignlePaiment};
+module.exports = {CreatePaiment , DeletePaiment , GetAllPaiments , getSignlePaiment };
