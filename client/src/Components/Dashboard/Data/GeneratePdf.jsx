@@ -16,18 +16,27 @@ function GeneratePdf() {
             axios.get(Api , {
                 headers: { Authorization: `Bearer ${token}` }
             }).then((res) => {
-                console.log(res.data);
                 setData(res.data)
             }) 
         } catch (error) {
             console.log(error);
         }
     }, [])
+
+
+    const generatePDF = () => {
+        const doc = new jsPDF('l', 'mm', [1000, 700]);
+        doc.html(document.querySelector("#paiment"), {
+          callback: function (pdf) {
+            pdf.save("paiment.pdf");
+          },
+        });
+      };
     
 
     return (
         <>
-            <button className='bg-[#FF6E31] rounded px-7 py-3 text-white'>Print</button>
+            <button onClick={generatePDF} className='bg-[#FF6E31] rounded px-7 py-3 text-white'>Print</button>
             <section className="" id="paiment">
                 <div className="max-w-5xl mx-auto py-7 bg-white">
                     <article className="overflow-hidden">
