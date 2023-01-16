@@ -83,7 +83,7 @@ const GetAllPaiments = asyncHandler(async (req, res) => {
 // @route GET : http:://localhost:3001/api/admin/paiment/:id
 
 const getSignlePaiment = asyncHandler(async(req,res) => {
-    const paiment = await Paiment.findById(req.params.id)
+    const paiment = await Paiment.findById(req.params.id).populate("Appartement_number").populate("CIN")
     if(paiment){
         res.status(200)
         .json(paiment)

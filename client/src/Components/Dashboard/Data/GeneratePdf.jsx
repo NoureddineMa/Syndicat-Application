@@ -1,13 +1,34 @@
-import React from 'react'
+import { useState , useEffect } from 'react'
+import { useNavigate , useParams ,  } from 'react-router-dom'
+import jsPDF from "jspdf";
+import axios from 'axios';
+
 
 function GeneratePdf() {
 
+    const [data ,setData] = useState({})
+    const {id} = useParams()
+    const Api = `http://localhost:3001/api/admin/paiment/${id}`
+    const token = localStorage.getItem("token")
+
+    useEffect(() => {
+        try {
+            axios.get(Api , {
+                headers: { Authorization: `Bearer ${token}` }
+            }).then((res) => {
+                console.log(res.data);
+                setData(res.data)
+            }) 
+        } catch (error) {
+            console.log(error);
+        }
+    }, [])
     
 
     return (
         <>
             <button className='bg-[#FF6E31] rounded px-7 py-3 text-white'>Print</button>
-            <section className="">
+            <section className="" id="paiment">
                 <div className="max-w-5xl mx-auto py-7 bg-white">
                     <article className="overflow-hidden">
                         <div className="bg-[white] rounded-b-md">
@@ -16,9 +37,9 @@ function GeneratePdf() {
                                     <p className="text-xl font-extrabold tracking-tight uppercase py-5 font-body">
                                         Syndicat Application
                                     </p>
+                                    <p className='my-3 py-4'>Paiment N': <span className='text-[#FF6E31] '>{data._id}</span></p>
                                 </div>
                             </div>
-
                             <div className="rounded border py-3 px-3">
                                 <div className="flex flex-col mx-0 mt-8">
                                     <table className="min-w-full divide-y divide-slate-500">
@@ -41,19 +62,19 @@ function GeneratePdf() {
                                         <tbody>
                                             <tr className="border-b border-slate-200">
                                                 <td className="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
-                                                    <div className="font-medium text-slate-700">Tesla Truck</div>
+                                                    <div className="font-medium text-slate-700">{data.CIN?.Name}</div>
                                                     <div className="mt-0.5 text-slate-500 sm:hidden">
                                                         1 unit at $0.00
                                                     </div>
                                                 </td>
                                                 <td className="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    48
+                                                {data.Appartement_number?.Appartement_number}
                                                 </td>
                                                 <td className="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    $0.00
+                                                    {data.Date?.slice(0,10)}
                                                 </td>
                                                 <td className="py-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                    {data.Montant} <span className='font-bold'>DH</span>
                                                 </td>
                                             </tr>
                                            
@@ -64,8 +85,8 @@ function GeneratePdf() {
                                                 <th scope="row" colSpan={3} className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0">
                                                     Subtotal
                                                 </th>
-                                                <td className="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td className="pt-6 pl-3 pr-4 text-sm text-right text-[#FF6E31] sm:pr-6 md:pr-0">
+                                                {data.Montant} <span className='font-bold'>DH</span>
                                                 </td>
                                             </tr>
                                         </tfoot>
