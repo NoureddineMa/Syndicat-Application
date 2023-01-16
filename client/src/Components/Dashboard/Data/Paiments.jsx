@@ -78,10 +78,10 @@ function Paiments() {
                     {paiment.Montant} <span className='font-bold'>DH</span>
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                    {paiment.CIN.CIN}
+                    {paiment.CIN?.CIN}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                    {paiment.Appartement_number.Appartement_number}
+                    {paiment.Appartement_number?.Appartement_number}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                         

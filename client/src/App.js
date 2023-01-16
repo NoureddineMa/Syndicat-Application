@@ -14,6 +14,7 @@ import UpdateClient from './Components/Dashboard/Update/UpdateClient.jsx';
 import Settings from './Components/Dashboard/Settings.jsx';
 import Notfound from './Components/Notfound.jsx';
 import GeneratePdf from './Components/Dashboard/Data/GeneratePdf.jsx';
+import IsLoggedIn from './Components/IsLoggedIn.js';
 
 
 
@@ -23,6 +24,7 @@ function App() {
     <UserProvider>
     <Routes>
         <Route path='/' element={<Login />} />
+        <Route element={<IsLoggedIn/>} >
        <Route  element={<Sidebar />} >
            <Route path='/Dashboard' element={<Counts/> }/>
             <Route path='/Appartements' element={<Appartements/>} />
@@ -36,6 +38,7 @@ function App() {
             <Route path='/AddPaiments' element={<AddPaiments />} />
             <Route path='/Settings' element={<Settings/>} />
        </Route>
+        </Route>
     </Routes>
     </UserProvider>
     </BrowserRouter>
