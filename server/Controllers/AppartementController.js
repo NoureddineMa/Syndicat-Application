@@ -15,8 +15,9 @@ const CreateAppartement = asyncHandler(async (req, res) => {
 
     const checkAppartementNumber = await Appartement.findOne({Appartement_number: req.body.Appartement_number})
     if(checkAppartementNumber){
-        res.json({message: "Appartement Already Exist "})
-        .status(400)
+        res.status(400)
+        .json({message: "Appartement Already Exist "})
+        
     }
 
     // Create Appartement :
@@ -54,6 +55,7 @@ const DeleteAppartement = asyncHandler(async (req, res) => {
 const UpdateAppartement = asyncHandler(async (req, res) => {
     const {Name_Residence , Appartement_number} = req.body; 
     const _id = req.params.id;
+    
 
     if(!Name_Residence || !Appartement_number){
         res.status(400)

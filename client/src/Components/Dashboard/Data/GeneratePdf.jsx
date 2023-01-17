@@ -36,9 +36,9 @@ function GeneratePdf() {
 
     return (
         <>
-            <button onClick={generatePDF} className='bg-[#FF6E31] rounded px-7 py-3 text-white'>Print</button>
+            <button onClick={generatePDF} className='bg-[#FAC213] rounded my-4 px-7 py-3 text-black font-semibold'>Print</button>
             <section className="" id="paiment">
-                <div className="max-w-5xl mx-auto py-7 bg-white">
+                <div className="max-w-5xl mx-auto px-5  py-7 bg-white">
                     <article className="overflow-hidden">
                         <div className="bg-[white] rounded-b-md">
                             <div className="">
@@ -46,7 +46,7 @@ function GeneratePdf() {
                                     <p className="text-xl font-extrabold tracking-tight uppercase py-5 font-body">
                                         Syndicat Application
                                     </p>
-                                    <p className='my-3 py-4'>Paiment N': <span className='text-[#FF6E31] '>{data._id}</span></p>
+                                    <p className='my-3 py-4'>Paiment N': <span className='text-[#FAC213] '>{data._id}</span></p>
                                 </div>
                             </div>
                             <div className="rounded border py-3 px-3">
@@ -91,10 +91,10 @@ function GeneratePdf() {
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th scope="row" colSpan={3} className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0">
+                                                <th scope="row" colSpan={3} className="hidden pt-6 pl-6 pr-3  font-bold text-right text-slate-500 sm:table-cell md:pl-0">
                                                     Subtotal
                                                 </th>
-                                                <td className="pt-6 pl-3 pr-4 text-sm text-right text-[#FF6E31] sm:pr-6 md:pr-0">
+                                                <td className="pt-6 pl-3 pr-4 text-sm text-right text-[#FAC213] font-bold sm:pr-6 md:pr-0">
                                                 {data.Montant} <span className='font-bold'>DH</span>
                                                 </td>
                                             </tr>

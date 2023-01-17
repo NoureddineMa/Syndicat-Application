@@ -102,21 +102,21 @@ function AddPaiments() {
 
             {/* code date picker */}
             <div>
-              <label htmlFor="date" className="text-sm text-black font-medium">Enter Date Payment : </label>
+              <label htmlFor="date" className="text-sm text-white font-medium">Enter Date Payment : </label>
               <div className="relative mt-1">
                 <input onChange={handleDate} type="date" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
               </div>
             </div>
             {/* end date picker  */}
             <div>
-              <label htmlFor="texte" className="text-sm text-black font-medium">Enter Montant : </label>
+              <label htmlFor="texte" className="text-sm text-white font-medium">Enter Montant : </label>
               <div className="relative mt-1">
                 <input onChange={handleMontant} type="texte" className="w-full rounded-lg text-black border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter Montant Appartement" />
               </div>
             </div>
 
             <div className="inline-block relative w-64">
-              <label htmlFor="password" className="text-sm text-black font-medium  ">Choose Appartement Number : </label>
+              <label htmlFor="password" className="text-sm text-white font-medium  ">Choose Appartement Number : </label>
               <select onChange={handleAppartementNumber} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
              <option selected disabled>Appartement Number</option>
               {NumberAppartement.map((number) => (
@@ -131,7 +131,7 @@ function AddPaiments() {
             </div>
 
             <div className="inline-block relative w-64">
-              <label htmlFor="password" className="text-sm text-black font-medium">CIN Owner : </label>
+              <label htmlFor="password" className="text-sm text-white font-medium">CIN Owner : </label>
               <select onChange={hanleCin} className="block  text-black appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <option selected disabled>CIN owner</option>
                 {CIIN.map((cin) => (
@@ -145,7 +145,7 @@ function AddPaiments() {
               </div>
             </div>
 
-            <button onClick={submitHandle} type="submit" className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
+            <button onClick={submitHandle} type="submit" className="block w-full rounded-lg bg-[#FAC213] px-5 py-3 text-sm font-medium text-black">
               ADD PAIMENT
             </button>
           </form>

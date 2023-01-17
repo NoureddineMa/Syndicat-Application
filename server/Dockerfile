@@ -1,5 +1,7 @@
 FROM node:16-alpine
 
+RUN npm install -g nodemon
+
 WORKDIR /server
 
 COPY package.json .
@@ -11,4 +13,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["node","server.js"]
+CMD ["npm","start"]

@@ -49,18 +49,18 @@ function Login() {
 
     return (
 
-        <div className="bg-[#1A120B]">
+        <div className="bg-[#3C4048]">
 
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg bottom">
                     <h1 className="text-center text-4xl m-5 font-bold text-back sm:text-3xl text-white">
                         Welcome Admin
                     </h1>
-                    <p className="mx-auto mt-4 max-w-md text-center text-[#FF6E31]">
+                    <p className="mx-auto mt-4 max-w-md text-center text-[#FAC213]">
                         Application de syndicat pour gérer les paiement pour chaque appartement
                     </p>
                     <form action className="mt-6 mb-7 space-y-4 rounded-lg p-8 shadow-2xl bg-[#FFFF]">
-                        <p className="text-lg title font-bold text-[#FF6E31]">Sign in to your account</p>
+                        <p className="text-lg title font-bold text-[#FAC213]">Sign in to your account</p>
                         {error && <div role="alert" class="border border-gray-100 p-4 shadow-xl">
                             <div class="flex items-start gap-4">
                                 <span class="text-red-600">
@@ -95,7 +95,7 @@ function Login() {
                             </div>
                         </div>
 
-                        <button type="submit" onClick={loginHandler} className="block w-full rounded-lg bg-[#FF6E31] px-5 py-3 text-sm font-medium text-white">
+                        <button type="submit" onClick={loginHandler} className="block w-full rounded-lg bg-[#FAC213] px-5 py-3 text-sm font-medium text-black">
                             Sign in
                         </button>
                     </form>
