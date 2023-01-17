@@ -59,8 +59,8 @@ function Sidebar() {
                   <path d="M16.41 4C18.35 4 19.91 5.57 19.91 7.5C19.91 9.39 18.41 10.93 16.54 11C16.4536 10.99 16.3664 10.99 16.28 11M18.34 20C19.06 19.85 19.74 19.56 20.3 19.13C21.86 17.96 21.86 16.03 20.3 14.86C19.75 14.44 19.08 14.16 18.37 14M9.16 10.87C9.06 10.86 8.94 10.86 8.83 10.87C7.6822 10.831 6.59464 10.3468 5.79763 9.51996C5.00062 8.69308 4.55674 7.58845 4.56 6.44C4.56 3.99 6.54 2 9 2C10.1762 1.97878 11.3127 2.42569 12.1595 3.24241C13.0062 4.05913 13.4938 5.17876 13.515 6.355C13.5362 7.53123 13.0893 8.66772 12.2726 9.51445C11.4559 10.3612 10.3362 10.8488 9.16 10.87ZM4.16 14.56C1.74 16.18 1.74 18.82 4.16 20.43C6.91 22.27 11.42 22.27 14.17 20.43C16.59 18.81 16.59 16.17 14.17 14.56C11.43 12.73 6.92 12.73 4.16 14.56Z" stroke="#FAC213" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div>
-                  <p className="font-bold text-base lg:text-lg text-white  leading-4 group-hover:text-indigo-400">Clients</p>
-                  <p className="text-[#FAC213]  text-sm hidden md:block">Manage Client</p>
+                  <p className="font-bold text-base lg:text-lg text-white  leading-4 group-hover:text-indigo-400">Owners</p>
+                  <p className="text-[#FAC213]  text-sm hidden md:block">Manage Owners</p>
                 </div>
               </div>
             </Link>

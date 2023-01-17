@@ -55,7 +55,7 @@ function Appartements() {
             <div className='flex py-3 justify-between '>
                 <h1 className='text-white font-xl font-bold ml-2 mt-4  d-flex'>ADD Appartement</h1>
                 <Link to="/AddAppartement">
-                    <button className='bg-[#FAC213] text-black px-11 py-2'>Add</button>
+                    <button className='bg-[#FAC213] rounded-md text-black px-11 py-2'>Add</button>
                 </Link>
             </div>
             <div className="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">

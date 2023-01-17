@@ -57,6 +57,10 @@ function GeneratePdf() {
                                                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-normal text-slate-700 sm:pl-6 md:pl-0">
                                                 Owner Name
                                                 </th>
+                                                <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-normal text-slate-700 sm:pl-6 md:pl-0">
+                                                CIN
+                                                </th>
+                                               
                                                 <th scope="col" className="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell">
                                                 Number Appartement
                                                 </th>
@@ -72,13 +76,18 @@ function GeneratePdf() {
                                             <tr className="border-b border-slate-200">
                                                 <td className="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
                                                     <div className="font-medium text-slate-700">{data.CIN?.Name}</div>
+                                                    
                                                     <div className="mt-0.5 text-slate-500 sm:hidden">
                                                         1 unit at $0.00
                                                     </div>
                                                 </td>
+                                                <td className="font-medium text-slate-700">
+                                                    {data.CIN?.CIN}  
+                                                </td>
                                                 <td className="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
                                                 {data.Appartement_number?.Appartement_number}
                                                 </td>
+                                                
                                                 <td className="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
                                                     {data.Date?.slice(0,10)}
                                                 </td>
