@@ -3,7 +3,6 @@ const request = require('supertest')
 
 describe("POST /login"  , () => {
 
-
 describe('Auth', () => {
     it('should respond with a 400 status code', async () => {
         const res = await request(app)
