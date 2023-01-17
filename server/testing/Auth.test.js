@@ -1,43 +1,55 @@
-const app = require('../server');
-const request = require('supertest');
+const app = require('../server')
+const request = require('supertest')
 
-describe('POST /login' , () => {
+describe("POST /login"  , () => {
 
-    test('Should respond status 400 if email or password empty' , async () => {
-        const response = await request(app).post('/api/admin/login')
+
+describe('Auth', () => {
+    it('should respond with a 400 status code', async () => {
+        const res = await request(app)
+        .post('/api/admin/login')
         .send({
-            Email : '',
-            Password : ''
-        });
-        expect(response.statusCode).toBe(400);
-    });
-
-
-    test('should respond status 400 if email ot valid ', async () => {
-        const response = await request(app).post('/api/admin/login')
-        .send({
-            Email: 'test',
-            Password : 'test'
-        });
-        expect(response.statusCode).toBe(400);
-
-
-    test('should respond status code 400 if email or password incorrect',async () => {
-            const response = await request(app).post('/api/admin/login')
-            .send({ 
-                 email: 'test@gmail.com',
-                 password: 'test'
-            });
-            expect(response.statusCode).toBe(400);
-        })  
-
-    test('should respond status code 200 if email and password correct',async () => {
-            const response = await request(app).post('/api/users/login')
-            .send({ 
-                 email: 'noureddinemaher13@gmail.com' ,
-                 password: 'test123' 
-            });
-            expect(response.statusCode).toBe(200);
+            email: '',
+            password: ''
         })
+        expect(res.status).toBe(400)
     })
+})
+
+describe('Auth', () => {
+    it('should respond with a 400 status code', async () => {
+        const res = await request(app)
+        .post('/api/admin/login')
+        .send({
+            email: 'noureddinemaher13@gmail.com',
+            password: ''
+        })
+        expect(res.status).toBe(400)
+    })
+})
+
+describe('Auth', () => {
+    it('should respond with a 400 status code', async () => {
+        const res = await request(app)
+        .post('/api/admin/login')
+        .send({
+            email: '',
+            password: 'test'
+        })
+        expect(res.status).toBe(400)
+    })
+})
+
+describe('Auth', () => {
+    it('should respond with a 400 status code', async () => {
+        const res = await request(app)
+        .post('/api/admin/login')
+        .send({
+            email: 'test@gmail.com',
+            password: 'test'
+        })
+        expect(res.status).toBe(400)
+    })
+})
+
 })

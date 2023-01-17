@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/NoureddineMa/Syndicat-Application/issues"
   },
-  "homepage": "https://github.com/NoureddineMa/Syndicat-Application#readme"
+  "homepage": "https://github.com/NoureddineMa/Syndicat-Application#readme",
+  "dependencies": {
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
 }
