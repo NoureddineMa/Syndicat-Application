@@ -17,28 +17,28 @@ function Settings() {
                 </div>
                 <form className="mx-auto mt-8 mb-0 max-w-md space-y-4">
                     <div >
-                        <label htmlFor="texte" className="text-white my-2 ">First Name</label>
+                        <label htmlFor="texte" className="text-sm font-medium text-white">First Name</label>
                         <div className="relative">
                             <input type="text" className="w-full text-sm rounded-lg border-gray-500 p-4 pr-12 text-black shadow-sm" placeholder={user.First_Name} />
                         </div>
                     </div>
 
                     <div >
-                        <label htmlFor="texte" className="text-white my-2">Second Name</label>
+                        <label htmlFor="texte" className="text-sm font-medium text-white">Second Name</label>
                         <div className="relative">
                             <input type="texte" className="w-full text-sm  rounded-lg border-gray-500 p-4 pr-12 text-black shadow-sm" placeholder={user.Second_Name}  />
                         </div>
                     </div>
 
                     <div >
-                        <label htmlFor="texte" className="text-white my-2">Phone Number</label>
+                        <label htmlFor="texte" className="text-sm font-medium text-white">Phone Number</label>
                         <div className="relative">
                             <input type="texte" className="w-full text-sm  rounded-lg border-gray-500 p-4 pr-12 text-black shadow-sm" placeholder={user.Phone_Number}  />
                         </div>
                     </div>
 
                     <div >
-                        <label htmlFor="texte" className="text-white my-2">Email</label>
+                        <label htmlFor="texte" className="text-sm font-medium text-white">Email</label>
                         <div className="relative">
                             <input type="texte" className="w-full text-sm  rounded-lg border-gray-500 p-4 pr-12 text-black shadow-sm" placeholder={user.Email}  />
                         </div>
