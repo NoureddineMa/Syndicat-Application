@@ -18,7 +18,6 @@ function Counts() {
             const data = await axios.get(API_CLIENT, {
                 headers: { Authorization: `Bearer ${token}` }
             })
-            console.log(data.data.count)
             setClientNumber(data.data?.count)
         } catch (error) {
             console.log(error);
@@ -30,7 +29,6 @@ function Counts() {
             const data = await axios.get(API_APPAETEMENT, {
                 headers: { Authorization: `Bearer ${token}` }
             })
-            console.log(data.data.count)
             setAppartementNumber(data.data?.count)
         } catch (error) {
             console.log(error);
@@ -42,7 +40,6 @@ function Counts() {
             const data = await axios.get(API_PAIMENT, {
                 headers: { Authorization: `Bearer ${token}` }
             })
-            console.log(data.data.count)
             setPaimentNumber(data.data?.count)
         } catch (error) {
             console.log(error);
